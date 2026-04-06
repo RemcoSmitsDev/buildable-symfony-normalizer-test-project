@@ -2,8 +2,8 @@ buildable_serializer:
     cache_dir: "%kernel.project_dir%/var/buildable_serializer"
     generated_namespace: "BuildableSerializer\\Generated"
 
-    # paths:
-    #     "App\\Model": "%kernel.project_dir%/src/Model"
+    paths:
+        "App\\Model": "%kernel.project_dir%/src/Model"
 
     features:
         groups: true
