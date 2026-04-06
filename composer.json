@@ -4,18 +4,32 @@
     "minimum-stability": "stable",
     "prefer-stable": true,
     "require": {
-        "php": ">=8.2",
+        "php": ">=8.1",
         "ext-ctype": "*",
         "ext-iconv": "*",
-        "symfony/console": "7.4.*",
-        "symfony/dotenv": "7.4.*",
-        "symfony/flex": "^2",
-        "symfony/framework-bundle": "7.4.*",
-        "symfony/runtime": "7.4.*",
-        "symfony/yaml": "7.4.*"
+        "buildable/serializer-bundle": ">=1",
+        "symfony/console": "^6.4.36",
+        "symfony/dotenv": "^6.4.36",
+        "symfony/flex": "^2.10",
+        "symfony/framework-bundle": "^6.4.36",
+        "symfony/property-access": "^6.4.32",
+        "symfony/property-info": "^6.4.34",
+        "symfony/runtime": "^6.4.30",
+        "symfony/serializer": "^6.4.36",
+        "symfony/yaml": "^6.4.34"
     },
     "require-dev": {
+        "phpdocumentor/reflection-docblock": "^5.6.7"
     },
+    "repositories": [
+        {
+            "type": "path",
+            "url": "../buildable-serializer-bundle",
+            "options": {
+                "symlink": true
+            }
+        }
+    ],
     "config": {
         "allow-plugins": {
             "php-http/discovery": true,
@@ -63,7 +77,7 @@
     "extra": {
         "symfony": {
             "allow-contrib": false,
-            "require": "7.4.*"
+            "require": "^6.4"
         }
     }
 }

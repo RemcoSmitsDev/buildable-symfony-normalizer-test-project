@@ -1,0 +1,17 @@
+buildable_serializer:
+    cache_dir: "%kernel.project_dir%/var/buildable_serializer"
+    generated_namespace: "BuildableSerializer\\Generated"
+
+    # paths:
+    #     "App\\Model": "%kernel.project_dir%/src/Model"
+
+    features:
+        groups: true
+        max_depth: true
+        circular_reference: true
+        name_converter: false
+        skip_null_values: true
+
+    generation:
+        strict_types: true
+        add_generated_tag: true
