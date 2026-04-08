@@ -14,4 +14,3 @@ buildable_serializer:
 
     generation:
         strict_types: true
-        add_generated_tag: true

@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Model;
 
-use Buildable\SerializerBundle\Attribute\Serializable;
+use BuildableSerializerBundle\Attribute\Serializable;
 use Symfony\Component\Serializer\Attribute\Groups;
 use Symfony\Component\Serializer\Attribute\MaxDepth;
 

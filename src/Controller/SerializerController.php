@@ -88,7 +88,7 @@ class SerializerController extends AbstractController
         }
         // dd($this->serializer);
         $elapsed = microtime(true) - $start;
-        dd("Time: " . round($elapsed * 1000) . " ms");
+        dd("Time: " . round($elapsed * 1000) . " ms", $data);
 
         return $this->json([
             "description" =>
