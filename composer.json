@@ -7,7 +7,7 @@
         "php": "8.1.*",
         "ext-ctype": "*",
         "ext-iconv": "*",
-        "buildable/serializer-bundle": ">=1",
+        "remcosmitsdev/buildable-serializer-bundle": ">=1",
         "symfony/console": "^6.4.36",
         "symfony/dotenv": "^6.4.36",
         "symfony/flex": "^2.10",
