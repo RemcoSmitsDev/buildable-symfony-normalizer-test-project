@@ -12,7 +12,7 @@
             "dist": {
                 "type": "path",
                 "url": "../buildable-serializer-bundle",
-                "reference": "ebce312595acfc23651df4144e2fe697c4825bad"
+                "reference": "dabed7e4df3e56bfec081e4969c70a3e5ac29bff"
             },
             "require": {
                 "nikic/php-parser": "^5.7",
