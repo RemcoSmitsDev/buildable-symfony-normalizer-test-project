@@ -90,11 +90,7 @@ class SerializerController extends AbstractController
         $elapsed = microtime(true) - $start;
         dd("Time: " . round($elapsed * 1000) . " ms", $data);
 
-        return $this->json([
-            "description" =>
-                'Post with group "post:read" + "user:list". Author is normalized inline; internalNote is #[Ignore]d.',
-            "data" => $data,
-        ]);
+        return $this->json($data);
     }
 
     /**

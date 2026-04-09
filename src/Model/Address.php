@@ -8,7 +8,6 @@ use BuildableSerializerBundle\Attribute\Serializable;
 use Symfony\Component\Serializer\Attribute\Groups;
 use Symfony\Component\Serializer\Attribute\SerializedName;
 
-#[Serializable]
 class Address
 {
     #[Groups(["address:read", "user:read"])]
