@@ -3,7 +3,10 @@ buildable_serializer:
     generated_namespace: "BuildableSerializer\\Generated"
 
     paths:
-        "App\\Model": "%kernel.project_dir%/src/Model"
+        "App\\Model":
+            path: "%kernel.project_dir%/src/Model"
+            exclude:
+                - "*ModelHelperClass.php"
 
     features:
         groups: true

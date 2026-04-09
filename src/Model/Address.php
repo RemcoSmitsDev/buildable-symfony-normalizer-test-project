@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace App\Model;
 
-use BuildableSerializerBundle\Attribute\Serializable;
 use Symfony\Component\Serializer\Attribute\Groups;
 use Symfony\Component\Serializer\Attribute\SerializedName;
 
