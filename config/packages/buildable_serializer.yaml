@@ -1,5 +1,5 @@
 buildable_serializer:
-    cache_dir: "%kernel.project_dir%/var/buildable_serializer"
+    cache_dir: "%kernel.project_dir%/var/cache/%kernel.environment%/buildable_serializer"
     generated_namespace: "BuildableSerializer\\Generated"
 
     paths:
