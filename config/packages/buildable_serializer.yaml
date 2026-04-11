@@ -9,7 +9,6 @@ buildable_serializer:
         groups: true
         max_depth: true
         circular_reference: true
-        name_converter: false
         skip_null_values: true
 
     generation:
