@@ -1,15 +1,14 @@
 buildable_serializer:
-    paths:
-        "App\\Model":
-            path: "%kernel.project_dir%/src/Model"
-            exclude:
-                - "*ModelHelperClass.php"
+    normalizers:
+        paths:
+            "App\\Model":
+                path: "%kernel.project_dir%/src/Model"
+                exclude:
+                    - "*ModelHelperClass.php"
 
-    features:
-        groups: true
-        max_depth: true
-        circular_reference: true
-        skip_null_values: true
-
-    generation:
-        strict_types: true
+        features:
+            groups: true
+            max_depth: true
+            circular_reference: true
+            skip_null_values: true
+            strict_types: true

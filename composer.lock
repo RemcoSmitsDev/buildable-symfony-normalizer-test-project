@@ -272,7 +272,7 @@
             "dist": {
                 "type": "path",
                 "url": "../buildable-serializer-bundle",
-                "reference": "d172363f4b71dc001e16857f6b0e11a7f2db5a4e"
+                "reference": "def14a075a6075a56f0b70118cf84bb6380deaa1"
             },
             "require": {
                 "nikic/php-parser": "^5.7",
