@@ -7,6 +7,8 @@ namespace App\Controller;
 use App\Model\Address;
 use App\Model\Post;
 use App\Model\User;
+use App\Model\UsersCollection;
+use DateTimeZone;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Routing\Attribute\Route;
@@ -51,21 +53,17 @@ class SerializerController extends AbstractController
     #[Route("/user/list", name: "user_list", methods: ["GET"])]
     public function userList(): JsonResponse
     {
-        $users = [
+        $users = new UsersCollection([
             $this->createSampleUser(1, "Alice", "Smith", "alice@example.com"),
             $this->createSampleUser(2, "Bob", "Jones", "bob@example.com"),
             $this->createSampleUser(3, "Carol", "White", "carol@example.com"),
-        ];
+        ]);
 
         $data = $this->serializer->normalize($users, null, [
             "groups" => ["user:list"],
         ]);
 
-        return $this->json([
-            "description" =>
-                'User list with group "user:list". Only id, firstName, lastName, createdAt are included.',
-            "data" => $data,
-        ]);
+        return $this->json($data);
     }
 
     /**

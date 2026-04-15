@@ -4,8 +4,11 @@ declare(strict_types=1);
 
 namespace App\Model;
 
+use DateTimeImmutable;
+use Symfony\Component\Serializer\Attribute\Context;
 use Symfony\Component\Serializer\Attribute\Groups;
 use Symfony\Component\Serializer\Attribute\MaxDepth;
+use Symfony\Component\Serializer\Normalizer\DateTimeNormalizer;
 
 class Post
 {
@@ -22,6 +25,12 @@ class Post
     #[MaxDepth(1)]
     private User $author;
 
+    #[
+        Groups(["post:read", "post:list"]),
+        Context([DateTimeNormalizer::FORMAT_KEY => 'Y-m-d'])
+    ]
+    private DateTimeImmutable $createdAt;
+
     public function __construct(
         int $id,
         string $title,
@@ -32,6 +41,7 @@ class Post
         $this->title = $title;
         $this->content = $content;
         $this->author = $author;
+        $this->createdAt = new DateTimeImmutable();
     }
 
     public function getId(): int
@@ -66,5 +76,10 @@ class Post
         $this->content = $content;
 
         return $this;
+    }
+
+    public function getCreatedAt(): DateTimeImmutable
+    {
+        return $this->createdAt;
     }
 }
