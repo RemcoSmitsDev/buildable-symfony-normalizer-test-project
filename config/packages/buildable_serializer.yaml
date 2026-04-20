@@ -12,3 +12,14 @@ buildable_serializer:
             circular_reference: true
             skip_null_values: true
             strict_types: true
+
+    denormalizers:
+        paths:
+            "App\\Model":
+                path: "%kernel.project_dir%/src/Model"
+                exclude:
+                    - "*ModelHelperClass.php"
+
+        features:
+            groups: true
+            strict_types: true

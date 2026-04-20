@@ -59,9 +59,25 @@ class SerializerController extends AbstractController
             $this->createSampleUser(3, "Carol", "White", "carol@example.com"),
         ]);
 
-        $data = $this->serializer->normalize($users, null, [
-            "groups" => ["user:list"],
-        ]);
+        $start = microtime(true);
+        for ($i = 0; $i < 200_000; $i++) {
+            $data = $this->serializer->normalize($users, null, [
+                "groups" => ["user:list"],
+            ]);
+        }
+        // dd($this->serializer);
+        $elapsed = microtime(true) - $start;
+        dump("Time: " . round($elapsed * 1000) . " ms", $data);
+
+        $start = microtime(true);
+        for ($i = 0; $i < 200_000; $i++) {
+            $data = $this->serializer->denormalize($data, UsersCollection::class, null, [
+                "groups" => ["user:list"],
+            ]);
+        }
+        // dd($this->serializer);
+        $elapsed = microtime(true) - $start;
+        dd("Time: " . round($elapsed * 1000) . " ms", $data);
 
         return $this->json($data);
     }
@@ -80,11 +96,15 @@ class SerializerController extends AbstractController
 
         $start = microtime(true);
         for ($i = 0; $i < 200_000; $i++) {
-            $data = $this->serializer->normalize($post, null, [
-                "groups" => ["post:read", "user:list"],
-            ]);
+            $data = $this->serializer->normalize($post);
         }
-        // dd($this->serializer);
+        $elapsed = microtime(true) - $start;
+        dump("Time: " . round($elapsed * 1000) . " ms", $data);
+
+        $start = microtime(true);
+        for ($i = 0; $i < 200_000; $i++) {
+            $this->serializer->denormalize($data, Post::class);
+        }
         $elapsed = microtime(true) - $start;
         dd("Time: " . round($elapsed * 1000) . " ms", $data);
 
@@ -202,10 +222,6 @@ class SerializerController extends AbstractController
             "data" => $data,
         ]);
     }
-
-    // -------------------------------------------------------------------------
-    // Fixtures
-    // -------------------------------------------------------------------------
 
     private function createSampleUser(
         int $id = 1,
