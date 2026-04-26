@@ -103,10 +103,10 @@ class SerializerController extends AbstractController
 
         $start = microtime(true);
         for ($i = 0; $i < 200_000; $i++) {
-            $this->serializer->denormalize($data, Post::class);
+            $post = $this->serializer->denormalize($data, Post::class);
         }
         $elapsed = microtime(true) - $start;
-        dd("Time: " . round($elapsed * 1000) . " ms", $data);
+        dd("Time: " . round($elapsed * 1000) . " ms", $post);
 
         return $this->json($data);
     }
