@@ -7,5 +7,6 @@ class ModelHelperClass
     public function checkSomething(): void
     {
 
+
     }
 }
